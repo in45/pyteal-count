@@ -1,0 +1,140 @@
+filename: counter.py
+timestamp: 1660347757
+compiled: BSACAQAmAQdjb3VudGVyMRgjEkAAMTEZIxJAAAEANhoAgANpbmMSQAAVNhoAgANkZWMSQAABACgoZCIJZyJDKChkIghnIkOABW93bmVyMQBnKCNnIkM=
+compiledHash: CEFRWVVRYGBI77PZOXM37A6USASSIH77CJV3GEUWKF5OEMEETXZAQBT2AQ
+srcHash: 803782732
+base64ToBytes:
+  - 5
+  - 32
+  - 2
+  - 1
+  - 0
+  - 38
+  - 1
+  - 7
+  - 99
+  - 111
+  - 117
+  - 110
+  - 116
+  - 101
+  - 114
+  - 49
+  - 24
+  - 35
+  - 18
+  - 64
+  - 0
+  - 49
+  - 49
+  - 25
+  - 35
+  - 18
+  - 64
+  - 0
+  - 1
+  - 0
+  - 54
+  - 26
+  - 0
+  - 128
+  - 3
+  - 105
+  - 110
+  - 99
+  - 18
+  - 64
+  - 0
+  - 21
+  - 54
+  - 26
+  - 0
+  - 128
+  - 3
+  - 100
+  - 101
+  - 99
+  - 18
+  - 64
+  - 0
+  - 1
+  - 0
+  - 40
+  - 40
+  - 100
+  - 34
+  - 9
+  - 103
+  - 34
+  - 67
+  - 40
+  - 40
+  - 100
+  - 34
+  - 8
+  - 103
+  - 34
+  - 67
+  - 128
+  - 5
+  - 111
+  - 119
+  - 110
+  - 101
+  - 114
+  - 49
+  - 0
+  - 103
+  - 40
+  - 35
+  - 103
+  - 34
+  - 67
+tealCode: |
+  #pragma version 5
+  txn ApplicationID
+  int 0
+  ==
+  bnz main_l8
+  txn OnCompletion
+  int NoOp
+  ==
+  bnz main_l3
+  err
+  main_l3:
+  txna ApplicationArgs 0
+  byte "inc"
+  ==
+  bnz main_l7
+  txna ApplicationArgs 0
+  byte "dec"
+  ==
+  bnz main_l6
+  err
+  main_l6:
+  byte "counter"
+  byte "counter"
+  app_global_get
+  int 1
+  -
+  app_global_put
+  int 1
+  return
+  main_l7:
+  byte "counter"
+  byte "counter"
+  app_global_get
+  int 1
+  +
+  app_global_put
+  int 1
+  return
+  main_l8:
+  byte "owner"
+  txn Sender
+  app_global_put
+  byte "counter"
+  int 0
+  app_global_put
+  int 1
+  return

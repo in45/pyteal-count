@@ -37,17 +37,21 @@ describe("Stateful Smart Contract Counter Tests", function () {
 
         // verify app created
         assert.isDefined(appID);
-        assert.equal(getGlobal(appID, "owner"), master.account); 
+      //  assert.equal(getGlobal(appID, "owner"), master.account); 
         assert.equal(getGlobal(appID, "counter"), 0);
 
         // verify app funded
         const appAccount = runtime.getAccount(appInfo.applicationAccount);
+
         assert.equal(appAccount.amount, 2e7);
-    });
+// sync account
+        master = runtime.getAccount(master.address);
+ assert.equal(master.amount, 8e7-1000);
+   });
 
-  
+ 
 
-    it("Attacks monster successfully", () => {
+    it("Increment counter successfully", () => {
         const appInfo = initContract();
         const appID = appInfo.appID;
 

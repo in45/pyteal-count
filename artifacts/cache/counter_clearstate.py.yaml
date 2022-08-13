@@ -1,0 +1,14 @@
+filename: counter_clearstate.py
+timestamp: 1660349362
+compiled: BYEBQw==
+compiledHash: BJATCHES5YJZJ7JITYMVLSSIQAVAWBQRVGPQUDT5AZ2QSLDSXWWM46THOY
+srcHash: 981139984
+base64ToBytes:
+  - 5
+  - 129
+  - 1
+  - 67
+tealCode: |
+  #pragma version 5
+  int 1
+  return

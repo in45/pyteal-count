@@ -9,6 +9,7 @@ async function run(runtimeEnv, deployer) {
 
     // get app info
     const counterApp = deployer.getApp(approvalFile, clearStateFile);
+   console.log(counterApp)
     const appID = counterApp.appID;
     let globalState = await readAppGlobalState(deployer, master.addr, appID);
     console.log(globalState);

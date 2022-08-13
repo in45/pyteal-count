@@ -15,7 +15,7 @@ async function run (runtimeEnv, deployer) {
   
   // create logic sig for sender account
   const masterLogicSig = await deployer.mkDelegatedLsig(
-    "counter.py",
+    "counter_approval.py",
     master,
     templateParams
   );

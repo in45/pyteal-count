@@ -1,23 +1,22 @@
 const { convert } = require("@algo-builder/algob");
 const { types } = require("@algo-builder/web");
 
-const initGameContract = (runtime, creatorAccount, approvalFile, clearStateFile) => {
-    // deploy contract
+const initCounterContract = (runtime, creatorAccount, approvalFile, clearStateFile) => {
 
-    await deployer.deployApp(
+    // deploy contract
+    runtime.deployApp(
         approvalFile,
         clearStateFile,
         {
-            sender: master,
+            sender: creatorAccount,
             localInts: 0,
             localBytes: 0,
             globalInts: 1,
             globalBytes: 1,
             appArgs: [],
         },
-        { totalFee: 1000 },//pay flags
+        { totalFee: 1000 }, //pay flags
         {} //smart contract template params
-
     );
 
     const appInfo = runtime.getAppInfoFromName(approvalFile, clearStateFile);

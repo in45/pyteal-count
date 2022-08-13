@@ -13,15 +13,15 @@ async function run(runtimeEnv, deployer) {
     let globalState = await readAppGlobalState(deployer, master.addr, appID);
     console.log(globalState);
 
-    // increment
-    const incAppArgs = ["dec"].map(convert.stringToBytes);
+    // decrement
+    const decAppArgs = ["dec"].map(convert.stringToBytes);
     await executeTransaction(deployer, {
         type: types.TransactionType.CallApp,
         sign: types.SignType.SecretKey,
         fromAccount: acc1,
         appID: appID,
         payFlags: { totalFee: 1000 },
-        appArgs: incAppArgs,
+        appArgs: decAppArgs,
     });
 
     // get global and local state
